@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "fixtrack-app"
+    "default": "FixTrack"
   },
   "targets": {},
   "etags": {}
