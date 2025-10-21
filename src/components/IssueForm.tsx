@@ -38,8 +38,8 @@ const IssueForm = ({ user, onSubmissionSuccess }: IssueFormProps) => {
   const mapRef = useRef<L.Map | null>(null);
   const markerRef = useRef<L.Marker | null>(null);
 
-  const CLOUD_NAME = 'dhoumkxhx';
-  const UPLOAD_PRESET = 'citizen-issuetracker';
+  const CLOUD_NAME = 'YOUR-CLOUDINARY-CLOUD-NAME';
+  const UPLOAD_PRESET = 'YOUR-CLOUDINARY-UPLOAD-PRESET';
   const categories = [
     "Road Damage / Potholes",
     "Street Light Issues",
