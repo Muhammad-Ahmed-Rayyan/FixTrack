@@ -1,0 +1,514 @@
+/* IssueList.css
+   Scoped styles for IssueList component.
+   citizen-view = card UI
+   admin-view = table UI
+   Theme: dark/glass (keeps your colors)
+*/
+
+/* ---------------- Shared / Layout ---------------- */
+
+.citizen-view,
+.admin-view {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Confirmation dialog (global for component) */
+.confirmation-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.confirmation-dialog {
+  background: #1c2a3a;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 480px;
+  width: 92%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.confirmation-dialog h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.confirmation-dialog p {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 1rem 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+/* dialog buttons */
+.dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dialog-button {
+  padding: 0.75rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.dialog-button.confirm {
+  background-color: #d9534f;
+  color: white;
+}
+
+.dialog-button.confirm:hover {
+  transform: translateY(-2px);
+}
+
+.dialog-button.cancel {
+  background-color: #4a5a66;
+  color: white;
+}
+
+.dialog-button.cancel:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------------- Citizen View (cards) ---------------- */
+
+.citizen-view .issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.citizen-view .no-issues-message {
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 2.2rem 1rem;
+  margin: 0;
+  background: rgba(40, 40, 40, 0.28);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  grid-column: 1 / -1;
+}
+
+.citizen-view .issue-card {
+  background: linear-gradient(180deg, #1e252b, #181d21);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+
+.citizen-view .issue-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+.citizen-view .card-image-container {
+  position: relative;
+  height: 200px;
+  background-color: #243746;
+  flex-shrink: 0;
+}
+
+.citizen-view .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.citizen-view .no-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #243746;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.citizen-view .status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  text-transform: capitalize;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* keep your original colors */
+.citizen-view .status-open {
+  background-color: #00aeef;
+  color: #fff;
+}
+.citizen-view .status-in-progress {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+.citizen-view .status-closed {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.citizen-view .card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.citizen-view .card-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.citizen-view .card-description {
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.citizen-view .card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.citizen-view .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.citizen-view .meta-icon {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* overlay actions on hover */
+.citizen-view .card-actions-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 30, 40, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  border-radius: 12px;
+}
+
+.citizen-view .issue-card:hover .card-actions-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.citizen-view .overlay-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.citizen-view .overlay-btn:hover {
+  background: rgba(255, 255, 255, 0.11);
+  transform: translateY(-3px);
+}
+
+/* Editing view (card) */
+.citizen-view .editing-view {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.citizen-view .editing-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.6rem 0;
+  text-align: center;
+}
+
+.citizen-view .edit-input,
+.citizen-view .edit-textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(34, 48, 60, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.citizen-view .edit-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.citizen-view .editing-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+}
+
+.citizen-view .edit-btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.citizen-view .save-btn {
+  background-color: #202a34;
+  color: #fff;
+}
+
+.citizen-view .cancel-btn {
+  background-color: #4a5a66;
+  color: #fff;
+}
+
+/* small adjustments for card action icons */
+.citizen-view .glass-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.citizen-view .glass-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------------- Admin View (table + filters) ---------------- */
+
+.admin-view .table-container {
+  overflow-x: auto;
+  background: #1d242a;
+  padding: 0rem;
+  box-shadow: none;  
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-view .filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+}
+
+.admin-view .filter-group label {
+  display: block;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+}
+
+.admin-view .filter-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(34, 48, 60, 0.7);
+  color: #fff;
+}
+
+.admin-view .reset-filters-btn {
+  padding: 1px 14px;
+  border-radius: 8px;
+  height: 40px;
+  width: 70%;
+  border: none;
+  background: #202a34;
+  color: #fff;
+  font-weight: 800;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.admin-view table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px; /* keep table readable on narrow screens with horizontal scroll */
+}
+
+.admin-view thead {
+  background-color: rgba(0, 0, 0, 0.22);
+}
+
+.admin-view th,
+.admin-view td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.admin-view th {
+  font-weight: 800;
+}
+
+.admin-view .description-cell {
+  max-width: 340px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.admin-view .status-select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(34, 48, 60, 0.7);
+  color: #fff;
+}
+
+/* small buttons in table actions */
+.admin-view .action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-view .glass-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.admin-view .glass-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* status badge small in table when editing */
+.admin-view .status-badge {
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 992px) {
+  .admin-view table {
+    min-width: 640px;
+  }
+  .admin-view th,
+  .admin-view td {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .citizen-view .issue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-view .filter-controls {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .admin-view .reset-filters-btn {
+    justify-self: stretch;
+  }
+  
+  .admin-view .table-container {
+    padding: 0px;
+  }
+
+  /* Reduce table density on very small screens */
+  .admin-view table {
+    min-width: 600px;
+  }
+
+  .citizen-view .issue-card {
+    min-height: 300px;
+  }
+
+  /* reduce size of action buttons */
+  .citizen-view .glass-btn,
+  .admin-view .glass-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* keep small visual consistency helpers (no theme change) */

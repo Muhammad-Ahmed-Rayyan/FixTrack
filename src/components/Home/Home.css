@@ -1,0 +1,122 @@
+.home-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 121vh;
+  text-align: center;
+  background: #FFFFFF;
+  color: #36454F;
+  padding: 80px 1rem 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.lottie-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;          /* ✅ Force full viewport height */
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.lottie-background > * {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;   /* ✅ Make sure it fills */
+}
+
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  transform: translateY(-65px); /* adjust until perfect */
+}
+
+
+.title {
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.get-started-btn,
+.learn-more-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn {
+  background-color: #36454F;
+  color: #FFFFFF;
+  border: 2px solid #36454F;
+}
+
+.get-started-btn:hover {
+  background-color: #FFFFFF;
+  color: #36454F;
+  border: 2px solid #36454F;
+}
+
+.learn-more-btn {
+  background-color: transparent;
+  color: #36454F;
+  border: 2px solid #36454F;
+}
+
+.learn-more-btn:hover {
+  background-color: #36454F;
+  color: #FFFFFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .get-started-btn,
+  .learn-more-btn {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+}
+

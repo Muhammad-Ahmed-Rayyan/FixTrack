@@ -1,0 +1,27 @@
+
+.landing-page main {
+  padding-top: 0px; /* Adjust based on Navbar height */
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#how-it-works {
+  background-color: #36454f;
+}
+
+#our-team {
+  background-color: #ffffff;
+}
+
+#built-with {
+  background-color: #36454f;
+}
+
+#contact-us {
+  background-color:#ffffff;
+}

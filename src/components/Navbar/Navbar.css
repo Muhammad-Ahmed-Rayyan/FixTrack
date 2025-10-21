@@ -1,0 +1,160 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #36454F;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-brand .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 5px; /* space for underline */
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-links a:hover {
+  color: #c7c7c7;
+}
+
+
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: none;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #FFFFFF;
+  color: #36454F;
+}
+
+.nav-button.signup {
+  background-color: #FFFFFF;
+  color: #36454F;
+}
+
+.nav-button.signup:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+.navbar-collapse {
+  display: contents;
+}
+
+@media (max-width: 768px) {
+  .navbar-links,
+  .navbar-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #36454F;
+    padding: 1rem 0;
+  }
+
+  .navbar-collapse.active {
+    display: flex;
+  }
+
+  .navbar-collapse .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .navbar-collapse .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem; /* space between logo and text */
+}
+
+.navbar-logo {
+  width: 32px;   /* adjust size if needed */
+  height: 32px;
+}
+

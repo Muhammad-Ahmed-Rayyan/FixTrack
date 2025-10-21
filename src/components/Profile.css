@@ -1,0 +1,17 @@
+/* Add styling for the Profile component here */
+.profile-container {
+    padding: 0; /* Remove padding to avoid double-padding from the parent card */
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}

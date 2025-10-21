@@ -1,0 +1,132 @@
+/* src/components/IssueForm.css */
+
+.issue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group select {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  color: white !important;
+}
+
+.form-group select option {
+  background-color: #4A5A66 !important;
+  color: white !important;
+}
+
+.leaflet-container {
+    border-radius: 10px;
+}
+
+
+/* Reset file input field to avoid dark style */
+.form-group input[type="file"] {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+/* Custom Choose File button */
+.form-group input[type="file"]::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-right: 1rem;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* leaflet-geosearch custom styles */
+.leaflet-control-geosearch {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Style the form (search box) */
+.leaflet-control-geosearch form {
+  background-color: white !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Style the search input */
+.leaflet-control-geosearch form input {
+  background-color: white !important;
+  padding: 0 10px !important;
+  border: none !important;
+  color: #333;
+  height: 100%;
+  outline: none;
+}
+
+.leaflet-control-geosearch form input::placeholder {
+  color: #999;
+}
+
+/* Results dropdown */
+.leaflet-control-geosearch .results {
+  background-color: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.leaflet-control-geosearch .results > * {
+  color: black !important;
+  padding: 10px;
+}
+
+.leaflet-control-geosearch .results > *:hover,
+.leaflet-control-geosearch .results > .active {
+  background-color: #f0f0f0 !important;
+}
+
+/* Reset (X) button */
+.leaflet-control-geosearch a.reset {
+  color: #555 !important;
+  line-height: 40px;
+}

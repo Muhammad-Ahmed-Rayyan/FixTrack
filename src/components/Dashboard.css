@@ -1,0 +1,447 @@
+/* src/components/Dashboard.css */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #36454F, #181e22);
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #fff;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  .success-dialog {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #242f35;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1200;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: auto;
+    max-width: 90%;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  
+  /* ===== Sidebar ===== */
+  .sidebar {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    transition: width 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 100;
+  }
+  
+  .sidebar.open {
+    width: 250px;
+  }
+  
+  .sidebar.closed {
+    width: 70px;
+    align-items: center;
+  }
+  
+  /* ===== Sidebar Header ===== */
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar.closed .sidebar-header {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    gap: 0;
+  }
+  
+  .sidebar.closed .sidebar-title {
+    display: none !important;
+  }
+  
+  .sidebar-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .sidebar-toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 15px;
+  }
+  
+  .sidebar.closed .sidebar-toggle-btn {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+  
+  /* ===== Sidebar Navigation ===== */
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .sidebar.closed .sidebar-nav {
+    align-items: center !important;
+  }
+  
+  .sidebar-nav-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .sidebar-nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  .sidebar-nav-btn.active {
+    background: #36454F;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 69, 79, 0.5);
+  }
+  
+  .sidebar-nav-btn svg {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  .sidebar.closed .sidebar-nav-btn span {
+    display: none;
+  }
+  
+  .sidebar.closed .sidebar-nav-btn {
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 0.8rem !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+  
+  /* ===== Sidebar Footer ===== */
+  .sidebar-footer {
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar.closed .sidebar-footer {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 0.75rem;
+    border-top: none !important;
+  }
+  
+  .sidebar.closed .sidebar-footer button,
+  .sidebar.closed .sidebar-footer .profile-btn {
+    margin: 0 !important;
+    padding: 0.5rem !important;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar.closed svg,
+  .sidebar.closed .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* ===== Main Content ===== */
+  .main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .main-content.shifted {
+    margin-left: 0;
+  }
+  
+  /* ===== Dashboard Header ===== */
+  .dashboard-header {
+    margin-bottom: 3rem;
+  }
+  
+  .header-content {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .header-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0 0 0;
+  }
+  
+  /* ===== Dashboard Content ===== */
+  .dashboard-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* ===== Dashboard Cards ===== */
+  .dashboard-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(54, 69, 79, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-sizing: border-box;
+    transition: max-width 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  /* ===== Floating Chatbot Button ===== */
+  .chatbot-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #242f35;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .chatbot-fab:hover {
+    background-color: #374552;
+    transform: scale(1.1);
+  }
+  .sidebar.open .sidebar-nav {
+    align-items: center;
+  }
+
+  .sidebar.open .sidebar-nav-btn {
+    width: 220px;
+    justify-content: flex-start;
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 992px) {
+    .header-content {
+      text-align: center;
+    }
+  
+    .header-title {
+      font-size: 2.2rem;
+    }
+
+    .dashboard-card {
+        padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .success-dialog {
+        top: 70px;
+        width: 90%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .sidebar.mobile {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: #242f35;
+        z-index: 1100;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.mobile.open {
+        transform: translateX(0);
+    }
+
+    .sidebar.mobile .sidebar-header {
+        display: flex;
+    }
+
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #242f35;
+      padding: 0.5rem 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1050;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-content.mobile-padding {
+      padding-top: 70px; /* Adjust for the fixed mobile header */
+    }
+
+    .main-content {
+      margin-left: 0 !important; /* Override desktop margin */
+    }
+
+    /* Hide desktop-only toggle button */
+    .sidebar:not(.mobile) .sidebar-toggle-btn {
+        display: block;
+    }
+    
+    .mobile-header .sidebar-toggle-btn {
+        margin-right: 0;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1090; /* Below sidebar, above everything else */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none; /* Allow clicks to pass through when invisible */
+    }
+
+    .overlay.visible {
+        opacity: 1;
+        pointer-events: auto; /* Capture clicks when visible */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-content {
+      text-align: center;
+    }
+
+    .dashboard-card {
+        padding: 0.8rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .dashboard-card {
+        padding: 0.5rem;
+    }
+  }
+
+
+
+  /* Align logo + text horizontally */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* Control logo size */
+.sidebar-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.success-dialog {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #242f35;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  z-index: 1200;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+  font-size: 1rem;
+}

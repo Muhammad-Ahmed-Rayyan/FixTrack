@@ -1,0 +1,67 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if a user is an admin with a specific role.
+    function isRole(role) {
+      return request.auth.uid != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role;
+    }
+
+    // Helper function to check if a user is the owner of a document.
+    function isOwner(doc) {
+      return request.auth.uid == doc.data.reportedBy;
+    }
+
+    // Rules for the 'users' collection.
+    match /users/{userId} {
+      // Only Super Admins (role: admin) can read, write, or delete user data.
+      // Any authenticated user can read their own data.
+      allow read, write, delete: if isRole('admin');
+      allow read: if request.auth.uid == userId;
+    }
+
+    // Rules for the 'issues' collection.
+    match /issues/{issueId} {
+      // Any authenticated user can create an issue.
+      allow create: if request.auth.uid != null;
+
+      // Super Admins can read all issues.
+      // Department admins can read issues belonging to their category.
+      // Citizens can read their own issues.
+      allow read: if isRole('admin') || 
+                    (isRole('road') && resource.data.category == 'Road Damage / Potholes') ||
+                    (isRole('electric') && resource.data.category == 'Street Light Issues') ||
+                    (isRole('water') && resource.data.category == 'Water Leakage / Shortage') ||
+                    (isRole('gas') && resource.data.category == 'Gas Leakage / Connection Issue') ||
+                    (isRole('power') && resource.data.category == 'Electricity Outage / Pole Damage') ||
+                    (isRole('sanitation') && resource.data.category == 'Sewerage / Drainage Problems') ||
+                    (isRole('infrastructure') && resource.data.category == 'Bridge or Footpath Damage') ||
+                    (isRole('waste') && resource.data.category == 'Garbage Collection / Overflow') ||
+                    (isRole('traffic') && resource.data.category == 'Road Blockage / Accidents') ||
+                    (isRole('emergency') && resource.data.category == 'Fire / Emergency Services') ||
+                    isOwner(resource);
+
+      // Super Admins can update any issue.
+      // Department admins can update issues in their category.
+      // Citizens can update their own issues.
+      allow update: if isRole('admin') || 
+                      (isRole('road') && resource.data.category == 'Road Damage / Potholes') ||
+                      (isRole('electric') && resource.data.category == 'Street Light Issues') ||
+                      (isRole('water') && resource.data.category == 'Water Leakage / Shortage') ||
+                      (isRole('gas') && resource.data.category == 'Gas Leakage / Connection Issue') ||
+                      (isRole('power') && resource.data.category == 'Electricity Outage / Pole Damage') ||
+                      (isRole('sanitation') && resource.data.category == 'Sewerage / Drainage Problems') ||
+                      (isRole('infrastructure') && resource.data.category == 'Bridge or Footpath Damage') ||
+                      (isRole('waste') && resource.data.category == 'Garbage Collection / Overflow') ||
+                      (isRole('traffic') && resource.data.category == 'Road Blockage / Accidents') ||
+                      (isRole('emergency') && resource.data.category == 'Fire / Emergency Services') ||
+                      isOwner(resource);
+
+      // Super Admins can delete any issue.
+      // Citizens can delete their own issues.
+      allow delete: if isRole('admin') || isOwner(resource);
+    }
+  }
+}

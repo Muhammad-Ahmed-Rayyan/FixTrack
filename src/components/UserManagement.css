@@ -1,0 +1,142 @@
+.user-management-container{
+  padding: 1.5rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0 auto;
+}
+
+.user-management-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.table-container {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  padding: 0rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  table-layout: auto;
+}
+
+.users-table th {
+  background-color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.users-table td {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  white-space: normal;
+  word-break: break-word;
+}
+
+.users-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* SELECT (dropdown) styling */
+.role-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%228%22%20viewBox%3D%220%200%2010%208%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200l5%208%205-8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  padding: 0.5rem 2rem 0.5rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  min-width: 150px;
+}
+
+/* FIX: Dropdown options background and text */
+.role-select option {
+  background-color: #4A5A66;  /* dark grey to match theme */
+  color: #ffffff;
+}
+
+/* Additional fix for some browsers during open state */
+.role-select:focus option,
+.role-select:active option {
+  background-color: #4A5A66;
+  color: #ffffff;
+}
+
+.role-select:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.role-select:focus {
+  outline: none;
+  border-color: #4A5A66;
+  box-shadow: 0 0 0 3px rgba(74, 90, 102, 0.5);
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.error-message {
+  color: #f44336;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .users-table th,
+  .users-table td {
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-management-container {
+    padding: 1rem;
+  }
+  .table-container {
+    padding: 0rem;
+  }
+  .users-table {
+    font-size: 0.85rem;
+  }
+  .role-select {
+    min-width: 120px;
+  }
+}
+
+.user-management-container.dashboard-card {
+  max-width: 95%;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}

@@ -1,0 +1,217 @@
+.profile-menu {
+  position: relative;
+  width: 100%;
+}
+
+.profile-menu-button {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.sidebar.closed .profile-menu-button {
+    justify-content: center;
+    padding: 0.5rem;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+}
+
+.profile-menu-button:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.sidebar.closed .profile-button-content {
+    justify-content: center;
+}
+
+.initials-circle {
+  background: #36454F;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.profile-arrow.open {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: #2c3a47;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
+  width: 185px;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.closed .profile-dropdown {
+    width: 185px;
+    left: 8px;
+    bottom: 60px; 
+}
+
+.user-info {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.user-info strong {
+  font-size: 0.95rem;
+  color: white;
+  word-break: break-all;
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-dropdown li button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-dropdown li button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.logout-button {
+    color: #ff8a80 !important;
+}
+
+.logout-button:hover {
+  background-color: rgba(244, 67, 54, 0.2) !important;
+  color: #ff5252 !important;
+}
+
+.reset-status {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reset-status.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #a5d6a7;
+}
+
+.reset-status.error {
+  background-color: rgba(239, 83, 80, 0.2);
+  color: #ef9a9a;
+}
+
+
+
+
+/* ===== Profile Menu adjustments when sidebar is closed ===== */
+.sidebar.closed .profile-menu {
+  position: absolute;       /* Stick to bottom */
+  bottom: 1rem;             /* Small spacing from bottom */
+  left: 50%;                /* Horizontal center */
+  transform: translateX(-50%);
+  width: auto;              /* Shrink to fit icon */
+}
+
+.sidebar.closed .profile-menu-button {
+  width: 55px;              /* Square button */
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure buttons inside profile dropdown stay left-aligned even when sidebar is closed */
+.sidebar.closed .profile-dropdown li button {
+  justify-content: flex-start;  /* align content to left */
+  text-align: left;             /* text aligns left */
+}
+
+/* When in mobile header, open dropdown downwards */
+.mobile-header .profile-dropdown {
+  bottom: auto;
+  top: calc(100% + 10px);
+  left: auto;
+  right: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-header .profile-menu {
+  width: auto; /* Allow the menu to shrink to its content */
+}
+
+.mobile-header .profile-menu-button {
+  background: none;
+  border: none;
+  padding: 0;
+  width: auto;
+}
