@@ -53,13 +53,13 @@ FixTrack
 ├── public
 │   ├── assets
 │   ├── logo
-│       ├── FixTrack.ico
-│       └── FixTrack.png
+│   │   ├── FixTrack.ico
+│   │   └── FixTrack.png
 │   ├── index.html
 │   └── vite.svg
 ├── src
 │   ├── animation
-│       └── Map_Pinging.json
+│   │   └── Map_Pinging.json
 │   ├── components
 │   │   ├── BuiltWith
 │   │   │   ├── BuiltWith.css
@@ -160,34 +160,28 @@ To set it up:
 
 ---
 
-## ⚙️ Firebase CLI Commands (Used in Firebase Studio)
+## ⚙️ Firebase Deployment & Hosting
 
-The following commands were used to set up and deploy FixTrack using Firebase Hosting:
-
+This project uses Firebase Hosting for deployment.
+Below are the steps and commands used to configure, build, and deploy FixTrack from Firebase Studio:
 ```bash
+# Log in to Firebase
 firebase login
+
+# Link your local project to a Firebase project
 firebase use --add
-firebase init hosting   # (Select "dist" or your build folder)
+
+# Initialize Firebase Hosting (select "dist" or your build folder)
+firebase init hosting
+
+# Build the production-ready project
 npm run build
+
+# Deploy to Firebase Hosting
 firebase deploy --only hosting
 ```
-
----
-
-## 🚀 Deployment
-
-To build the project for production:
-
-```bash
-npm run build
-```
-
-Your optimized build files will appear in the `dist` directory.  
-You can deploy them manually or using **Firebase Hosting**:
-
-```bash
-firebase deploy --only hosting
-```
+After deployment, your production files will be available online via the Firebase Hosting URL.
+The optimized build files are located in the dist directory.
 
 ---
 
