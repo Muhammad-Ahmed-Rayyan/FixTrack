@@ -83,12 +83,12 @@ VITE_GEMINI_API_KEY="YOUR-GEMINI-API-KEY"
 You can obtain these values from:
 
 - Firebase Console:
--- Go to your Firebase project → Project Settings → General.
--- Under Your Apps, select your web app to view the configuration keys.
+  - Go to your Firebase project → Project Settings → General.
+  - Under Your Apps, select your web app to view the configuration keys.
 
 - Gemini API (for AI Integration):
--- Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to generate your Gemini API Key.
---Replace "YOUR-GEMINI-API-KEY" with your actual Gemini key in the .env file.
+  - Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to generate your Gemini API Key.
+  -Replace "YOUR-GEMINI-API-KEY" with your actual Gemini key in the .env file.
 
 ### ☁️ 2. Cloudinary Configuration — FixTrack/src/components/IssueForm.tsx
 
