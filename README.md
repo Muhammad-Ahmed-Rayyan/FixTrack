@@ -11,7 +11,8 @@
 
 <br>
 
-Built with the tools and technologies:
+Built with the tools and technologies: 
+
 ![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)
@@ -24,8 +25,6 @@ Built with the tools and technologies:
 ## 🧠 Project Summary
 
 **FixTrack** is a web-based application designed for real-time reporting, tracking, and resolution of issues. It provides a platform for users to submit issues with location data, and for administrators to manage and monitor the status of these issues. The interactive map interface allows for easy visualization of issue locations.
-
-**🔗[Try it Live!](https://fixtrack-95541.web.app/)**
 
 ---
 
