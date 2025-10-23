@@ -5,8 +5,8 @@
 **Real-Time Issue Reporting and Tracking System**
 
 ![Last Commit](https://img.shields.io/github/last-commit/Muhammad-Ahmed-Rayyan/FixTrack)
-![TypeScript](https://img.shields.io/badge/TypeScript-70.2%25-blue?logo=typescript)
-![CSS](https://img.shields.io/badge/CSS-29.8%25-orange?logo=css3)
+![TypeScript](https://img.shields.io/badge/TypeScript-61.9%25-blue?logo=typescript)
+![CSS](https://img.shields.io/badge/CSS-37.2%25-orange?logo=css3)
 ![languages](https://img.shields.io/github/languages/count/Muhammad-Ahmed-Rayyan/FixTrack)
 
 <br>
