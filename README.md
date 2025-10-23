@@ -16,7 +16,10 @@ Built with the tools and technologies:
 ![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)
+![Firebase Console](https://img.shields.io/badge/Firebase_Console-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-%23199900.svg?style=for-the-badge&logo=leaflet&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-%233498DB.svg?style=for-the-badge&logo=cloudinary&logoColor=white)
 
 </div>
 
@@ -24,24 +27,29 @@ Built with the tools and technologies:
 
 ## 🧠 Project Summary
 
-**FixTrack** is a web-based application designed for real-time reporting, tracking, and resolution of issues. It provides a platform for users to submit issues with location data, and for administrators to manage and monitor the status of these issues. The interactive map interface allows for easy visualization of issue locations.
+**FixTrack** is a web-based application designed for real-time reporting, tracking, and resolution of issues. It provides a platform for users to submit issues with location data, and for administrators to manage and monitor the status of these issues. The interactive map interface allows for easy visualization of issue locations and supports department-based management for better organization.
 
 ---
 
 ## 🚀 Features
 
 - 🔐 **User Authentication:** Secure user registration and login functionality.
-- 🗺️ **Interactive Map:** Users can report issues by selecting a location on an interactive map powered by Leaflet.
-- 📝 **Issue Reporting:** A detailed form for submitting new issues, including title, description, and location.
-- 📊 **Dashboard:** A comprehensive dashboard to view, filter, and manage all reported issues.
-- 🔔 **Real-Time Updates:** Issues and their statuses are updated in real-time using Firebase.
-- 🤖 **Chatbot:** An integrated chatbot to provide assistance to users.
-- 👤 **User Management:** Admins can manage users and their roles within the system.
-- 🎨 **Responsive Design:** A modern and responsive UI built with React and custom CSS.
+- 🗺️ **Interactive Map:** Users can report issues by selecting a location on an interactive map powered by **Leaflet**.
+- 📝 **Issue Reporting:** Submit detailed reports including title, description, image (via **Cloudinary**), and location.
+- 📊 **Dashboard:** View, filter, and manage all reported issues in one place.
+- 🔔 **Real-Time Updates:** Issue data and statuses update in real-time through **Firebase**.
+- 🤖 **Chatbot Integration:** An intelligent chatbot assists users with reporting or tracking issues.
+- 👥 **Role-Based Access:**
+  - **Department Admins** can view and manage reports related only to their respective departments (e.g., road, sanitation, etc.).
+  - **Super Admins** have full access — they can view/manage all reports and handle user management.
+- 🧭 **Location-Based Reporting:** Each issue is tagged with its geographic coordinates for accurate placement on the map.
+- 🎨 **Responsive Design:** Fully responsive and mobile-friendly UI built with **React** and custom **CSS**.
 
 ---
 
 ## 🗃️ Project Structure
+
+> (The following structure represents the current version and may not be 100% final. A complete updated structure will be added later.)
 
 ```bash
 FixTrack
@@ -84,7 +92,7 @@ FixTrack
 
 ## 🔧 Setup & Installation
 
-> Make sure Node.js and npm are installed.
+> Make sure **Node.js** and **npm** are installed on your system.
 
 ```bash
 # Clone the repo
@@ -102,25 +110,40 @@ npm run dev
 
 ## 🔥 Firebase Configuration
 
-This project uses Firebase for backend services. To run the project, you need to set up your own Firebase project and configure the app.
+This project uses **Firebase** for backend services.  
+To set it up:
 
-1.  Create a new project on the [Firebase Console](https://console.firebase.google.com/).
-2.  Add a new web app to your project.
-3.  Copy the Firebase configuration object and replace the placeholder in `FixTrack/src/firebaseConfig.ts`.
+1. Create a new project in the [Firebase Console](https://console.firebase.google.com/).
+2. Add a new **web app** to your Firebase project.
+3. Copy the Firebase configuration object.
+4. Replace the placeholder in `FixTrack/src/firebaseConfig.ts` with your own config.
+
+---
+
+## ⚙️ Firebase CLI Commands (Used in Firebase Studio)
+
+The following commands were used to set up and deploy FixTrack using Firebase Hosting:
+
+```bash
+firebase login
+firebase use --add
+firebase init hosting   # (Select "dist" or your build folder)
+npm run build
+firebase deploy --only hosting
+```
 
 ---
 
 ## 🚀 Deployment
 
-The project can be built for production using the following command:
+To build the project for production:
 
 ```bash
 npm run build
 ```
 
-The production-ready files will be located in the `dist` directory. These files can be deployed to any static hosting service.
-
-This project is configured for deployment with Firebase Hosting. To deploy to Firebase, you can use the Firebase CLI:
+Your optimized build files will appear in the `dist` directory.  
+You can deploy them manually or using **Firebase Hosting**:
 
 ```bash
 firebase deploy --only hosting
@@ -130,6 +153,6 @@ firebase deploy --only hosting
 
 <div align="center">
 
-⭐ Support this project by dropping a star on GitHub!
+⭐ **Support this project by giving it a star on GitHub!** ⭐
 
 </div>
