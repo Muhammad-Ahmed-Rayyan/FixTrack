@@ -16,7 +16,6 @@ Built with the tools and technologies:
 ![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)
-![Firebase Console](https://img.shields.io/badge/Firebase_Console-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Leaflet](https://img.shields.io/badge/Leaflet-%23199900.svg?style=for-the-badge&logo=leaflet&logoColor=white)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-%233498DB.svg?style=for-the-badge&logo=cloudinary&logoColor=white)
@@ -49,43 +48,84 @@ Built with the tools and technologies:
 
 ## 🗃️ Project Structure
 
-> (The following structure represents the current version and may not be 100% final. A complete updated structure will be added later.)
-
 ```bash
 FixTrack
 ├── public
+│   ├── assets
 │   ├── logo
-│   └── assets
+│       ├── FixTrack.ico
+│       └── FixTrack.png
+│   ├── index.html
+│   └── vite.svg
 ├── src
 │   ├── animation
-│   ├── assets
+│       └── Map_Pinging.json
 │   ├── components
-│   │   ├── Auth
 │   │   ├── BuiltWith
-│   │   ├── Chatbot
+│   │   │   ├── BuiltWith.css
+│   │   │   └── BuiltWith.tsx
 │   │   ├── ContactUs
-│   │   ├── Dashboard
+│   │   │   ├── ContactUs.css
+│   │   │   └── ContactUs.tsx
 │   │   ├── Footer
+│   │   │   ├── Footer.css
+│   │   │   └── Footer.tsx
 │   │   ├── Home
+│   │   │   ├── Home.css
+│   │   │   └── Home.tsx
 │   │   ├── HowItWorks
-│   │   ├── IssueForm
-│   │   ├── IssueList
+│   │   │   ├── HowItWorks.css
+│   │   │   └── HowItWorks.tsx
 │   │   ├── LoadingSpinner
+│   │   │   ├── LoadingSpinner.css
+│   │   │   └── LoadingSpinner.tsx
 │   │   ├── Navbar
+│   │   │   ├── Navbar.css
+│   │   │   └── Navbar.tsx
 │   │   ├── OurTeam
-│   │   ├── Profile
-│   │   └── ProfileMenu
+│   │   │   ├── OurTeam.css
+│   │   │   └── OurTeam.tsx
+│   │   ├── Auth.css
+│   │   ├── Auth.tsx
+│   │   ├── Chatbot.css
+│   │   ├── Chatbot.tsx
+│   │   ├── Dashboard.css
+│   │   ├── Dashboard.tsx
+│   │   ├── IssueForm.css
+│   │   ├── IssueForm.tsx
+│   │   ├── IssueList.css
+│   │   ├── IssueList.tsx
+│   │   ├── Profile.css
+│   │   ├── Profile.tsx
+│   │   ├── ProfileMenu.css
+│   │   ├── ProfileMenu.tsx
+│   │   ├── UserManagement.css
+│   │   └── UserManagement.css
 │   ├── pages
-│   │   └── LandingPage
+│   │   ├── LandingPage.css
+│   │   ├── LandingPage.test.tsx
+│   │   └── LandingPage.tsx
+│   ├── App.css
 │   ├── App.tsx
 │   ├── firebaseConfig.ts
+│   ├── index.css
 │   ├── main.tsx
-│   └── types.ts
+│   ├── setupTests.ts
+│   ├── types.ts
+│   └── vite-env.d.ts
+├── .env
+├── .eslintrc.cjs
 ├── .firebaserc
+├── cors.json
 ├── firebase.json
+├── firebase.rules
 ├── index.html
+├── package-lock.json
 ├── package.json
-└── vite.config.ts
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── vitest.config.ts
 ```
 
 ---
