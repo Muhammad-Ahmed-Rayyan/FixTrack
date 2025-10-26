@@ -198,7 +198,7 @@ To set it up:
 3. Copy the Firebase configuration object.
 
 ---
-
+ 
 ## ⚙️ Firebase Deployment & Hosting
 
 This project uses Firebase Hosting for deployment.
