@@ -28,7 +28,7 @@ Built with the tools and technologies:
 
 **FixTrack** is a web-based application designed for real-time reporting, tracking, and resolution of issues. It provides a platform for users to submit issues with location data, and for administrators to manage and monitor the status of these issues. The interactive map interface allows for easy visualization of issue locations and supports department-based management for better organization.
 
-Check it out: [FixTrack](fixtrack-app.firebaseapp.com)
+Check it out: [FixTrack](https://fixtrack-app.firebaseapp.com/)
 
 ---
 
